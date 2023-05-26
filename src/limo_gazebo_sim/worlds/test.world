@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <!-- <include>
+      <uri>model://house_6</uri>
+    </include> -->
+
+     <model name="house_6">
+      <link name="link">
+        <pose>>0.775 -2.48428 0 0 -0 0</pose>
+
+        <collision name='Wall_0_Collision'>
+          <geometry>
+            <box>
+              <size>0 0 1.25 0 -0 0</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0 0 1.25 0 -0 0</size>
+            </box>
+          </geometry>
+        <!-- <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Bricks</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta> -->
+        </visual>
+
+        <sensor name='my_contact' type='contact'>
+          <contact>
+            <collision>box_collision</collision>
+          </contact>
+        </sensor>
+      </link>
+    </model>
+
+    <physics type='ode'>
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>100</real_time_update_rate>
+      <gravity>0 0 -9.8</gravity>
+    </physics>
+  </world>
+</sdf>
+
